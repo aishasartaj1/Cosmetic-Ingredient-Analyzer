@@ -1,6 +1,9 @@
-# Ingredient Analyzer Agent
+# Cosmetic Ingredient Analyzer with RAG
 
-This Streamlit application implements an Ingredient Analyzer Agent that helps users analyze cosmetic product ingredients using Retrieval-Augmented Generation (RAG) via Vectorize portal and Anthropic's Claude 3.
+This Streamlit application analyzes cosmetic product ingredients using Retrieval-Augmented Generation (RAG) powered by Vectorize and OpenAI's GPT-4. The knowledge base is built from web-crawled data from two authoritative sources:
+
+1. [CosmeticsInfo.org](https://cosmeticsinfo.org) - A comprehensive database of cosmetic ingredients maintained by the Personal Care Products Council
+2. [INCIDecoder](https://incidecoder.com) - A detailed ingredient dictionary with explanations of cosmetic formulations
 
 ## Features
 
@@ -8,11 +11,34 @@ This Streamlit application implements an Ingredient Analyzer Agent that helps us
 - Paste ingredient lists directly
 - RAG-powered ingredient information lookup using Vectorize
 - Detailed analysis of each ingredient including:
-  - Purpose/use
+  - Purpose/use in cosmetic formulations
   - Safety level (1-10 scale)
-  - Allergen/toxicity warnings
-  - Skin type suitability
+  - Potential warnings or allergen information
+  - Suitable/unsuitable skin types
 - Export analysis results as CSV
+
+## Technical Implementation
+
+### RAG Pipeline
+- **Data Source**: Web crawled content from CosmeticsInfo.org and INCIDecoder
+- **Vector Database**: Vectorize (Organization ID: fd8b5286-0ba8-415b-9e4c-bac61ecf5ea9)
+- **RAG Pipeline ID**: aipbfbe3-30a9-4c82-995b-789c17e8870e
+- **LLM**: OpenAI GPT-4 Turbo for analysis and response generation
+
+### Key Components
+1. **Vectorize Integration**:
+   - Stores and retrieves relevant ingredient information
+   - Semantic search for ingredient properties and safety data
+   - Returns top 3 most relevant document chunks per query
+
+2. **LLM Analysis**:
+   - Processes retrieved information using GPT-4
+   - Structures data into consistent format
+   - Provides safety ratings and recommendations
+
+3. **Image Processing**:
+   - Uses Tesseract OCR for ingredient label extraction
+   - Supports JPG, PNG, and JPEG formats
 
 ## Prerequisites
 
@@ -26,7 +52,7 @@ This Streamlit application implements an Ingredient Analyzer Agent that helps us
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/aishasartaj1/my-project.git
    cd my-project
    ```
 
@@ -46,53 +72,32 @@ This Streamlit application implements an Ingredient Analyzer Agent that helps us
 
 4. Create a `.env` file in the project root with your API keys:
    ```
-   ANTHROPIC_API_KEY=your-anthropic-api-key
+   OPENAI_API_KEY=your-openai-api-key
    VECTORIZE_API_KEY=your-vectorize-api-key
    ```
 
-5. Initialize Vectorize:
-   - Sign up for Vectorize at [portal.vectorize.com](https://portal.vectorize.com)
-   - Create a new collection named "cosmetic_ingredients"
-   - Upload your cosmetic ingredients dataset
-   - Get your API key and add it to the `.env` file
-
 ## Running the Application
 
-1. Make sure your virtual environment is activated
+1. Ensure your virtual environment is activated
 2. Run the Streamlit app:
    ```bash
    streamlit run app.py
    ```
+3. Open your browser and navigate to http://localhost:8504
 
-3. Open your browser and navigate to the URL shown in the terminal (usually http://localhost:8501)
+## Example Ingredients to Test
 
-## Usage
-
-1. Choose your input method:
-   - Upload an image of a product's ingredient label
-   - Paste a comma-separated list of ingredients
-
-2. Click "Analyze Ingredients" to process the ingredients
-
-3. View the analysis results in the table:
-   - Purpose/function of each ingredient
-   - Safety ratings and warnings
-   - Download the analysis as CSV if needed
-
-## How it Works
-
-1. **Input Processing**:
-   - OCR (pytesseract) extracts text from uploaded images
-   - Text input is cleaned and normalized
-
-2. **RAG Analysis**:
-   - Each ingredient is looked up in the Vectorize database
-   - Relevant information is retrieved and processed
-   - Claude 3 analyzes the information and provides structured insights
-
-3. **Results**:
-   - Analysis is presented in a clear, tabular format
-   - Results can be exported for further use
+Here are some common ingredients you can test with the analyzer:
+- Niacinamide
+- Hyaluronic Acid
+- Glycerin
+- Retinol
+- Vitamin C
+- Salicylic Acid
+- Squalane
+- Panthenol
+- Ceramide NP
+- Peptides
 
 ## Contributing
 
@@ -100,4 +105,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-[Your chosen license]
+MIT License
