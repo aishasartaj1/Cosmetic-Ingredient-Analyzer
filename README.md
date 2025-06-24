@@ -51,8 +51,8 @@ This Streamlit application analyzes cosmetic product ingredients using Retrieval
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/aishasartaj1/my-project.git
-   cd my-project
+   git clone https://github.com/aishasartaj1/Cosmetic-Ingredient-Analyzer.git
+   cd Cosmetic-Ingredient-Analyzer
    ```
 
 2. Create a virtual environment and activate it:

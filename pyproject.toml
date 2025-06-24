@@ -1,7 +1,7 @@
 [project]
-name = "ingredient-analyzer"
+name = "cosmetic-ingredient-analyzer"
 version = "0.1.0"
-description = "Ingredient Analyzer Agent with RAG capabilities"
+description = "Cosmetic Ingredient Analyzer with RAG capabilities"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
