@@ -116,7 +116,7 @@ MIT License
 
 ## Deployment
 
-This application is deployed on Streamlit Cloud and can be accessed at: [Cosmetic Ingredient Analyzer](https://your-app-url-here)
+**Note**: This application uses OpenAI and Vectorize APIs which have usage limits. Consider your API usage and costs before deploying publicly.
 
 To deploy your own instance:
 
