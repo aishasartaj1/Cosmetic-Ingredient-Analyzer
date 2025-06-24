@@ -1,0 +1,9 @@
+streamlit
+python-dotenv
+pytesseract
+Pillow
+pandas
+langchain
+langchain-openai
+vectorize-client
+python-dotenv 

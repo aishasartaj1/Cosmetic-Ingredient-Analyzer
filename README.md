@@ -113,3 +113,21 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 MIT License
+
+## Deployment
+
+This application is deployed on Streamlit Cloud and can be accessed at: [Cosmetic Ingredient Analyzer](https://your-app-url-here)
+
+To deploy your own instance:
+
+1. Fork this repository
+2. Sign up for [Streamlit Cloud](https://streamlit.io/cloud)
+3. Create a new app and connect it to your forked repository
+4. Add the following secrets in Streamlit Cloud settings:
+   - `OPENAI_API_KEY`
+   - `VECTORIZE_API_KEY`
+   - `VECTORIZE_ORG_ID`
+   - `VECTORIZE_PIPELINE_ID`
+5. Deploy!
+
+Note: Make sure you have Tesseract installed on your deployment environment. Streamlit Cloud comes with Tesseract pre-installed.

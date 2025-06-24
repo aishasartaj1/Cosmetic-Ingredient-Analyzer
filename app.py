@@ -16,8 +16,10 @@ import json
 # Load environment variables
 load_dotenv()
 
-# Set Tesseract path
-pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+# Set Tesseract path based on environment
+if os.name == 'nt':  # Windows
+    pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+# Linux/Mac already have tesseract in PATH
 
 # Initialize Vectorize client
 api = v.ApiClient(v.Configuration(
