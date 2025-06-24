@@ -36,8 +36,8 @@ class RAGTool(BaseTool):
         # Search for ingredient information using Vectorize
         try:
             response = pipelines_api.retrieve_documents(
-                "fd8b5286-0ba8-415b-9e4c-bac61ecf5ea9",  # Organization ID
-                "aipbfbe3-30a9-4c82-995b-789c17e8870e",  # Pipeline ID
+                os.getenv("VECTORIZE_ORG_ID"),  # Organization ID from environment
+                os.getenv("VECTORIZE_PIPELINE_ID"),  # Pipeline ID from environment
                 v.RetrieveDocumentsRequest(
                     question=f"What are the properties, uses, and safety information of {ingredient}?",
                     num_results=3

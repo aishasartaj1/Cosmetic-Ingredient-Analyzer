@@ -21,8 +21,7 @@ This Streamlit application analyzes cosmetic product ingredients using Retrieval
 
 ### RAG Pipeline
 - **Data Source**: Web crawled content from CosmeticsInfo.org and INCIDecoder
-- **Vector Database**: Vectorize (Organization ID: fd8b5286-0ba8-415b-9e4c-bac61ecf5ea9)
-- **RAG Pipeline ID**: aipbfbe3-30a9-4c82-995b-789c17e8870e
+- **Vector Database**: Vectorize
 - **LLM**: OpenAI GPT-4 Turbo for analysis and response generation
 
 ### Key Components
@@ -70,11 +69,19 @@ This Streamlit application analyzes cosmetic product ingredients using Retrieval
    pip install -e .
    ```
 
-4. Create a `.env` file in the project root with your API keys:
+4. Create a `.env` file in the project root with your configuration:
    ```
    OPENAI_API_KEY=your-openai-api-key
    VECTORIZE_API_KEY=your-vectorize-api-key
+   VECTORIZE_ORG_ID=your-vectorize-organization-id
+   VECTORIZE_PIPELINE_ID=your-vectorize-pipeline-id
    ```
+
+5. Update the configuration:
+   - Sign up for OpenAI and get your API key
+   - Sign up for Vectorize at [portal.vectorize.com](https://portal.vectorize.com)
+   - Create a new pipeline for ingredient analysis
+   - Add your Vectorize organization ID and pipeline ID to the `.env` file
 
 ## Running the Application
 
